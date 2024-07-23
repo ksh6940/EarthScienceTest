@@ -2,9 +2,6 @@
 
 const int buzzerPin = 13;
 
-const int ledPin1 = 6; //적색편이
-const int ledPin2 = 5; //청색편이
-
 const unsigned int IN1 = 8;
 const unsigned int IN2 = 9;
 const unsigned int EN = 10;
@@ -22,8 +19,6 @@ void setup()
   pinMode(buttonPin2, INPUT);
 
   pinMode(buzzerPin, OUTPUT);
-  pinMode(ledPin1, OUTPUT);
-  pinMode(ledPin2, OUTPUT);
 
   motor.setSpeed(100);
 }
@@ -36,18 +31,16 @@ void loop()
   tone(buzzerPin, 329.63);
 
  if (buttonState1 == HIGH){
-   digitalWrite(ledPin1, HIGH);
+   Serial.println('버튼 : 가까워짐');
    motor.forward();
    delay(6000);
    motor.stop();
  } else if (buttonState2 == HIGH) {
-   digitalWrite(ledPin2, HIGH);
+   Serial.println('버튼 : 멀어짐');
    motor.backward();
    delay(6000);
    motor.stop();
  } else {
    motor.stop();
-   digitalWrite(ledPin1, LOW);
-   digitalWrite(ledPin2, LOW);
  }
 }
