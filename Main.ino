@@ -1,8 +1,5 @@
 #include <L298N.h>
 
-const int buzzerPin = 7;
-#include <L298N.h>
-
 const int buzzerPin = 5;
 
 // Pin definition
@@ -97,14 +94,14 @@ void loop()
     Serial.println("버튼 : 가까워짐");  // Corrected to use double quotes for string
     digitalWrite(LedPin2, HIGH);
     motor.forward();
-    delay(6000);
+    delay(1500);
     motor.stop();
   } 
   else if (buttonState2 == LOW) {
     Serial.println("버튼 : 멀어짐");  // Corrected to use double quotes for string
     digitalWrite(LedPin1, HIGH);
     motor.backward();
-    delay(6000);
+    delay(1500);
     motor.stop();
   } 
   else {
